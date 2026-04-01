@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.voting.controller.AdminDashboardController" styleClass="root">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="nav-bar">
+            <Label text="Admin Dashboard" styleClass="nav-title"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Live Results" onAction="#viewResults" styleClass="btn-secondary"/>
+            <Button text="Logout" onAction="#logout" styleClass="btn-danger"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <HBox spacing="20">
+            <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+            
+            <!-- Left Side: Manage Candidates Form -->
+            <VBox spacing="20" prefWidth="300" styleClass="card" maxHeight="350">
+                <Label text="Add Candidate" styleClass="title-label" style="-fx-font-size: 20px;"/>
+                
+                <VBox spacing="5">
+                    <Label text="Candidate Name" />
+                    <TextField fx:id="nameField" promptText="Enter name" styleClass="text-field"/>
+                </VBox>
+                
+                <VBox spacing="5">
+                    <Label text="Department" />
+                    <TextField fx:id="departmentField" promptText="Enter department" styleClass="text-field"/>
+                </VBox>
+                
+                <Button text="Add Candidate" onAction="#handleAddCandidate" styleClass="btn-primary" maxWidth="Infinity"/>
+                <Region VBox.vgrow="ALWAYS" />
+                <Button text="Delete Selected" onAction="#handleDeleteCandidate" styleClass="btn-danger" maxWidth="Infinity"/>
+            </VBox>
+            
+            <!-- Right Side: Candidate List -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="card">
+                <Label text="Candidate List" styleClass="title-label" style="-fx-font-size: 20px;"/>
+                
+                <TableView fx:id="candidateTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="50" styleClass="table-column"/>
+                        <TableColumn fx:id="colName" text="Name" prefWidth="200" styleClass="table-column"/>
+                        <TableColumn fx:id="colDepartment" text="Department" prefWidth="150" styleClass="table-column"/>
+                        <TableColumn fx:id="colVotes" text="Votes" prefWidth="100" styleClass="table-column"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

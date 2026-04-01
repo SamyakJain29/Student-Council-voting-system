@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.voting.controller.StudentDashboardController" styleClass="root">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="nav-bar">
+            <Label text="Student Council Voting" styleClass="nav-title"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="welcomeLabel" style="-fx-font-weight: bold; -fx-text-fill: #34495e;"/>
+            <Button text="Live Results" onAction="#viewResults" styleClass="btn-secondary"/>
+            <Button text="Logout" onAction="#logout" styleClass="btn-danger"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="20" alignment="TOP_CENTER">
+                <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+                
+                <Label text="Candidates" styleClass="title-label"/>
+                <Label text="Please select a candidate to cast your vote. You can only vote once." styleClass="subtitle-label"/>
+                
+                <FlowPane fx:id="candidatesContainer" hgap="20" vgap="20" alignment="CENTER" prefWrapLength="800">
+                    <padding><Insets top="20" bottom="20"/></padding>
+                </FlowPane>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

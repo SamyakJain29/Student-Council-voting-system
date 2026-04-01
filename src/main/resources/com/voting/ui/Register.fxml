@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.voting.controller.RegisterController" styleClass="root">
+    <VBox alignment="CENTER" maxWidth="450" maxHeight="550" styleClass="card" spacing="15">
+        <Label text="Create Account" styleClass="title-label"/>
+        <Label text="Join the Student Council Voting System" styleClass="subtitle-label"/>
+        
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Full Name" />
+            <TextField fx:id="nameField" promptText="Enter your name" styleClass="text-field" prefWidth="350" prefHeight="40"/>
+        </VBox>
+        
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Student ID" />
+            <TextField fx:id="studentIdField" promptText="Enter your Student ID" styleClass="text-field" prefWidth="350" prefHeight="40"/>
+        </VBox>
+        
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Password" />
+            <PasswordField fx:id="passwordField" promptText="Create a password" styleClass="password-field" prefWidth="350" prefHeight="40"/>
+        </VBox>
+
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Confirm Password" />
+            <PasswordField fx:id="confirmPasswordField" promptText="Confirm password" styleClass="password-field" prefWidth="350" prefHeight="40"/>
+        </VBox>
+        
+        <Button text="Register" onAction="#handleRegister" styleClass="btn-primary" prefWidth="350" prefHeight="40">
+            <VBox.margin><Insets top="15"/></VBox.margin>
+        </Button>
+        
+        <HBox alignment="CENTER" spacing="5">
+            <Label text="Already have an account?" />
+            <Button text="Login Here" onAction="#goToLogin" styleClass="btn-secondary"/>
+        </HBox>
+    </VBox>
+</StackPane>

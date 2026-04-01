@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.voting.controller.ResultsController" styleClass="root">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="nav-bar">
+            <Button text="← Back" onAction="#handleBack" styleClass="btn-secondary"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Live Election Results" styleClass="title-label" style="-fx-font-size: 24px;"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Refresh Data" onAction="#handleRefresh" styleClass="btn-primary"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <padding><Insets top="30" right="50" bottom="30" left="50"/></padding>
+            
+            <VBox alignment="CENTER" styleClass="card" VBox.vgrow="ALWAYS" maxWidth="1000">
+                <Label fx:id="totalVotesLabel" styleClass="subtitle-label" style="-fx-font-weight: bold; -fx-font-size: 18px;"/>
+                
+                <BarChart fx:id="resultsChart" VBox.vgrow="ALWAYS" animated="true" legendVisible="false">
+                    <xAxis>
+                        <CategoryAxis fx:id="xAxis" label="Candidates" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxis" label="Vote Count" tickUnit="1"/>
+                    </yAxis>
+                </BarChart>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
